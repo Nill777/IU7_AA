@@ -1,0 +1,69 @@
+\chapter{Технологическая часть}
+
+\section{Средства реализации}
+
+В данной работе для реализации был выбран язык программирования $Python$. Требуется замерить количество сравнений и построить графики. Для построения графиков использовалась библиотека $mathplotlib$.
+
+\section{Реализация алгоритмов}
+
+В листингах~\ref{lst:full_search}-~\ref{lst:bin_search} представлены реализации алгоритмов поиска полным перебором и бинарного поиска.
+\begin{center}
+    \captionsetup{justification=raggedright,singlelinecheck=off}
+    \begin{lstlisting}[label=lst:full_search,caption=Алгоритм поиска в словаре полным перебором]
+def full_search(dict_a: Dictionary, search_key):
+	count = 0
+	keys = dict_a.data.keys()
+	for key in keys:
+		count += 1
+		if (key == search_key):
+			return [dict_a.data[key], count]
+	return [NOT_FOUND, count] 
+\end{lstlisting}
+\end{center}
+
+\clearpage
+
+\begin{center}
+    \captionsetup{justification=raggedright,singlelinecheck=off}
+    \begin{lstlisting}[label=lst:bin_search,caption=Алгоритм бинарного поиска]
+def bin_search(dict_a: Dictionary, key):
+	count = 0
+	sort_dict = Dictionary()
+	sort_dict.data = dict_a.sort()
+	keys = list(sort_dict.data.keys())
+	left = 0 
+	right = len(keys)
+
+	while (left <= right):         
+		count += 1                  
+		mid = (left + right) // 2   
+		key_mid = keys[mid]         
+		if (key_mid == key):        
+			return [sort_dict.data[key_mid], count] 
+		elif (key_mid < key):      
+			left = mid + 1          
+		else:
+			right = mid - 1         
+
+	return [NOT_FOUND, count]
+\end{lstlisting}
+\end{center}
+
+\clearpage
+
+\section{Функциональные тесты}
+
+В таблице~\ref{tbl:functional_test} приведены тесты для функций программы. Тесты для всех функций пройдены успешно.
+
+\begin{center}
+    \captionsetup{justification=raggedright,singlelinecheck=off}
+    \begin{longtable}[c]{|c|c|c|c|c|}
+    \caption{Функциональные тесты\label{tbl:functional_test}} \\ \hline
+		Ключ & Результат & Пояснение \\ \hline
+		emptyVIN & Нет такого ключа & Ключ отсутствует \\ \hline
+		WZSLH08W7RNBMEEE2 & Инф-ия и кол-во сравнений & Первый ключ \\ \hline
+		KTMY9BVE3K3ARBKE8 & Инф-ия и кол-во сравнений & Последний ключ \\ \hline
+		7LB08NXS8G9UBGNZE & Инф-ия и кол-во сравнений & Ключ в словаре \\
+		\hline
+	\end{longtable}
+\end{center}

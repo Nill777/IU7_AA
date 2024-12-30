@@ -1,0 +1,163 @@
+\chapter{Технологическая часть}
+
+\section{Средства реализации}
+
+В данной работе для реализации был выбран язык программирования $Python$. Требуется измерить временные затраты и построить графики. Для построения графиков использовалась библиотека $mathplotlib$.
+
+\section{Реализация алгоритмов}
+
+В листингах~\ref{lst:brute_force}-~\ref{lst:ant} представлены реализации алгоритма полного перебора и муравьиного алгоритма для решения задачи коммивояжёра.
+\begin{center}
+    \captionsetup{justification=raggedright,singlelinecheck=off}
+    \begin{lstlisting}[label=lst:brute_force,caption=Алгоритм полного перебора]
+def brute_force_voyager(matrix, size):
+	cities = list(range(size))
+	permutations = it.permutations(cities)
+
+	min_len = float("inf")
+	best_route = None
+	for perm in permutations:
+		cur_route = list(perm)
+		cur_len = 0
+
+		for i in range(len(cur_route) - 1):
+			cur_len += matrix[cur_route[i]][cur_route[i + 1]]
+
+		if cur_len < min_len:
+			min_len = cur_len
+			best_route = cur_route
+
+	return min_len, best_route
+\end{lstlisting}
+\end{center}
+
+\clearpage
+
+\begin{center}
+    \captionsetup{justification=raggedright,singlelinecheck=off}
+    \begin{lstlisting}[label=lst:ant,caption=Муравьиный алгоритм]
+def daily_quota_Q(matrix, size):
+	matrix = np.array(matrix)
+	total_sum = np.sum(matrix) - np.sum(np.diag(matrix))
+	count = size * (size - 1)
+	return total_sum / count
+
+def calc_len_route(matrix, route):
+	length = sum(matrix[route[i], route[i + 1]] for i in range(len(route) - 1))
+	return length
+
+def update_pheromones(matrix, size, visited, pheromones, daily_quota, k_evaporation):
+	for i in range(size):
+		for j in range(size):
+			delta_pheromones = 0
+			for ant in range(size):
+				length = calc_len_route(matrix, visited[ant])
+				delta_pheromones += daily_quota / length
+
+			pheromones[i][j] = pheromones[i][j] * (1 - k_evaporation) + delta_pheromones
+			pheromones[i][j] = max(pheromones[i][j], MIN_PHEROMONE)
+
+	return pheromones
+
+def get_matrix_pheromones(size):
+	return [[INIT_PHEROMONE] * size for _ in range(size)]
+
+def get_matrix_visibility(matrix, size):
+	visibility_matrix = []
+	for i in range(size):
+		row = []
+		for j in range(size):
+			if i != j:
+				row.append(1.0 / matrix[i][j])
+			else:
+				row.append(0)
+		visibility_matrix.append(row)
+
+	return visibility_matrix
+
+def get_matrix_visited(route, ants):
+	visited = [[] for _ in range(ants)]
+	for ant in range(ants):
+		visited[ant].append(int(route[ant]))
+
+	return visited
+
+def choose_next_city(pheromones, ant, alpha, beta, visibility, visited, cities):
+	probabilities = [0] * cities
+	for city in range(cities):
+		if city not in visited[ant]:
+			ant_city = visited[ant][-1]
+			probabilities[city] = (pheromones[ant_city][city] ** alpha) * (visibility[ant_city][city] ** beta)
+		else:
+			probabilities[city] = 0
+
+	sum_probabilities = sum(probabilities)
+	if sum_probabilities > 0:
+		probabilities = [p / sum_probabilities for p in probabilities]
+	else:
+		return None
+
+	posibility = random()
+	cumulative_p = np.cumsum(probabilities)
+	chosen_city = np.searchsorted(cumulative_p, posibility)
+	
+	return int(chosen_city)
+
+def ant_alg(matrix, cities, alpha, beta, days, k_evaporation):
+	best_route = []
+	min_len = float("inf")
+	daily_quota = daily_quota_Q(matrix, cities)
+	pheromones = get_matrix_pheromones(cities)
+	visibility = get_matrix_visibility(matrix, cities)
+	ants = cities
+
+	for day in range(days):
+		route = np.arange(cities)
+		visited = get_matrix_visited(route, ants)
+		for ant in range(ants):
+			while (len(visited[ant]) != ants):
+				chosen_city = choose_next_city(pheromones, ant, alpha, beta, visibility, visited, cities)
+				visited[ant].append(chosen_city)    # -1
+
+			cur_len = calc_len_route(matrix, visited[ant]) 
+			if (cur_len < min_len):
+				min_len = cur_len
+				best_route = visited[ant]
+
+		pheromones = update_pheromones(matrix, cities, visited, pheromones, daily_quota, k_evaporation)
+
+	return min_len, best_route
+\end{lstlisting}
+\end{center}
+
+
+\section{Функциональные тесты}
+
+В таблице~\ref{tbl:functional_test} приведены тесты для функций программы. Тесты для всех функций пройдены успешно.
+
+\begin{center}
+    \captionsetup{justification=raggedright,singlelinecheck=off}
+    \begin{longtable}[c]{|c|c|c|c|c|}
+    \caption{Функциональные тесты\label{tbl:functional_test}} \\ \hline
+		Матрица смежности & Ожидание & Результат \\ \hline
+		$\begin{pmatrix}0 & 1 & 7 \\
+						1 & 0 & 9 \\
+						7 & 9 & 0 \end{pmatrix}$ & [1, 0, 2] & [1, 0, 2] \\ \hline
+		$\begin{pmatrix}0 & 4 & 4 & 2 \\
+						4 & 0 & 1 & 6 \\
+						4 & 1 & 0 & 1 \\
+						2 & 6 & 1 & 0 \end{pmatrix}$ & [0, 3, 2, 1] & [0, 3, 2, 1] \\ \hline
+		$\begin{pmatrix}0 & 6 & 3 & 8 & 10 \\
+						6 & 0 & 5 & 7 & 8 \\
+						3 & 5 & 0 & 2 & 3 \\
+						8 & 7 & 2 & 0 & 2 \\
+						10 & 8 & 3 & 2 & 0 \end{pmatrix}$ & [1, 0, 2, 3, 4] & [1, 0, 2, 3, 4] \\ \hline
+		$\begin{pmatrix}0 & 2 & 2 & 8 & 2 & 3 \\
+						2 & 0 & 7 & 1 & 1 & 9 \\
+						2 & 7 & 0 & 9 & 3 & 5 \\
+						8 & 1 & 9 & 0 & 6 & 9 \\
+						2 & 1 & 3 & 6 & 0 & 6 \\
+						3 & 9 & 5 & 9 & 6 & 0 \end{pmatrix}$ & [3, 1, 4, 2, 0, 5] & [3, 1, 4, 2, 0, 5] \\
+		\hline
+	\end{longtable}
+\end{center}

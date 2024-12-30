@@ -1,0 +1,79 @@
+% пакеты
+\usepackage{csquotes}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Библиография
+\NewBibliographyString{accessmode}
+\DeclareFieldFormat{url}{\bibstring{accessmode}\addcolon\space\url{#1}}
+\DeclareFieldFormat{title}{#1}
+\DefineBibliographyStrings{russian}{
+accessmode={Режим доступа:},
+urlseen={дата обращения:}
+}
+% скобки после пунктов
+\setenumerate[1]{label={ \arabic*)}}
+\usepackage{enumitem}
+
+% математика в листингах
+\lstset{
+mathescape=true
+}
+
+% \FloatBarrier
+\usepackage{placeins}
+
+% $ в листингах
+\newcommand{\dlr}{\mbox{\textdollar}}
+
+% Тире в itemize
+\renewcommand\labelitemi{---}
+
+% \foreach
+\usepackage{pgffor}
+
+% Длинные таблицы
+\usepackage{longtable}
+
+% Картинки
+\newcommand{\img}[3] {
+\begin{figure}[t!]
+    \center{\includegraphics[height=#1]{inc/img/#2}}
+    \caption{#3}
+    \label{img:#2}
+\end{figure}
+}
+\newcommand{\imgw}[3] {
+\begin{figure}[h!]
+    \center{\includegraphics[width=#1]{inc/img/#2}}
+    \caption{#3}
+    \label{img:#2}
+\end{figure}
+}
+\newcommand{\boximg}[3] {
+\begin{figure}[h]
+    \center{\fbox{\includegraphics[height=#1]{inc/img/#2}}}
+    \caption{#3}
+    \label{img:#2}
+\end{figure}
+}
+
+\newcommand{\imgsvg}[3] {
+\begin{figure}[t!]
+    \centering
+    \includesvg[height=#1]{inc/img/#2}
+    \caption{#3}
+    \label{img:#2}
+\end{figure}
+}
+
+\newcommand{\aasection}[2] {
+    \vspace{20mm}
+    {\let\clearpage\relax \chapter{#1}\label{#2}}
+}
+
+\newcommand{\aaunnumberedsection}[2] {
+    \vspace{20mm}
+    \addcontentsline{toc}{chapter}{#1}
+    {\let\clearpage\relax \chapter*{#1}\label{#2}}
+}

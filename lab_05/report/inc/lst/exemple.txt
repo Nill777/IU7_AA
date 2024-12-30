@@ -1,0 +1,37 @@
+Enter the number of tasks to process: 3
+Task: 1 created
+File: utf_8_18268913385945316603.html
+Task: 1 added to read queue
+Task: 2 created
+File: utf_8_15546927078813418238.html
+Task: 1 start reading
+Task: 2 added to read queue
+Task: 3 created
+File: utf_8_5765029285466088104.html
+Task: 3 added to read queue
+Task: 1 end reading
+Task: 1 added to extract queue
+Task: 2 start reading
+Task: 2 end reading
+Task: 2 added to extract queue
+Task: 3 start reading
+Task: 3 end reading
+Task: 1 start extracting
+Task: 3 added to extract queue
+Task: 1 end extracting
+Task: 1 added to write queue
+Task: 2 start extracting
+Task: 1 start writing
+Task: 1 end writing
+Task: 1 destructed
+Task: 2 end extracting
+Task: 2 added to write queue
+Task: 3 start extracting
+Task: 2 start writing
+Task: 2 end writing
+Task: 2 destructed
+Task: 3 end extracting
+Task: 3 added to write queue
+Task: 3 start writing
+Task: 3 end writing
+Task: 3 destructed

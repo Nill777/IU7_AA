@@ -1,0 +1,150 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.8 Chrome/128.0.6613.120 Electron/32.1.0 Safari/537.36" version="24.7.8">
+  <diagram id="QM2p47kPDZQZnexqTIiv" name="Страница 1">
+    <mxGraphModel dx="857" dy="1197" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="197" style="edgeStyle=none;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=30;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" parent="1" source="3" target="167" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Начало" style="html=1;dashed=0;whitespace=wrap;shape=mxgraph.dfd.start" parent="1" vertex="1">
+          <mxGeometry x="860" y="210" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-236" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="167">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="960" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="167" value="Создать матрицу феромонов" style="html=1;dashed=0;whitespace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="860" y="300" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="231" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" parent="1" source="181" target="228" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-237" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="181">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="960" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="181" value="Цикл по дням" style="shape=loopLimit;whiteSpace=wrap;html=1;direction=east" parent="1" vertex="1">
+          <mxGeometry x="860" y="390" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-241" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="228" target="Kszkaf4qabi_7N6jdBUt-239">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="228" value="Создать муравьев&lt;div&gt;с начальным городом&lt;/div&gt;" style="html=1;dashed=0;whitespace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="860" y="480" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-249" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Kszkaf4qabi_7N6jdBUt-239" target="Kszkaf4qabi_7N6jdBUt-248">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-239" value="Цикл по муравьям" style="shape=loopLimit;whiteSpace=wrap;html=1;direction=east" vertex="1" parent="1">
+          <mxGeometry x="860" y="580" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-252" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Kszkaf4qabi_7N6jdBUt-248" target="Kszkaf4qabi_7N6jdBUt-250">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-248" value="Цикл по непосещенным узлам" style="shape=loopLimit;whiteSpace=wrap;html=1;direction=east" vertex="1" parent="1">
+          <mxGeometry x="860" y="680" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-253" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Kszkaf4qabi_7N6jdBUt-250" target="Kszkaf4qabi_7N6jdBUt-251">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-250" value="Выбрать непосещенный узел,&amp;nbsp;&lt;div&gt;учитывая феромон&lt;/div&gt;" style="html=1;dashed=0;whitespace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="860" y="780" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-255" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Kszkaf4qabi_7N6jdBUt-251" target="Kszkaf4qabi_7N6jdBUt-254">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-251" value="Добавить узел в маршрут муравья" style="html=1;dashed=0;whitespace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="860" y="880" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-257" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Kszkaf4qabi_7N6jdBUt-254" target="Kszkaf4qabi_7N6jdBUt-256">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-254" value="Конец цикла по муравьям" style="shape=loopLimit;whiteSpace=wrap;html=1;strokeWidth=1;direction=west;" vertex="1" parent="1">
+          <mxGeometry x="860" y="980" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-260" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Kszkaf4qabi_7N6jdBUt-256" target="Kszkaf4qabi_7N6jdBUt-259">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-256" value="Конец цикла по непосещенным узлам" style="shape=loopLimit;whiteSpace=wrap;html=1;strokeWidth=1;direction=west;" vertex="1" parent="1">
+          <mxGeometry x="860" y="1080" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-264" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Kszkaf4qabi_7N6jdBUt-258" target="Kszkaf4qabi_7N6jdBUt-263">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-258" value="Применить испарение феромонов" style="html=1;dashed=0;whitespace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="390" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-259" value="А" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="920" y="1180" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-262" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Kszkaf4qabi_7N6jdBUt-261" target="Kszkaf4qabi_7N6jdBUt-258">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-261" value="А" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="280" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-266" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Kszkaf4qabi_7N6jdBUt-263" target="Kszkaf4qabi_7N6jdBUt-265">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-263" value="Цикл по муравьям" style="shape=loopLimit;whiteSpace=wrap;html=1;direction=east" vertex="1" parent="1">
+          <mxGeometry x="1150" y="480" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-274" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Kszkaf4qabi_7N6jdBUt-265" target="Kszkaf4qabi_7N6jdBUt-269">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-265" value="Добавить феромон на маршрут&lt;div&gt;&amp;nbsp;муравья&lt;/div&gt;" style="html=1;dashed=0;whitespace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="580" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-267" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Kszkaf4qabi_7N6jdBUt-269">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1410" y="770" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-268" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Kszkaf4qabi_7N6jdBUt-269">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1260" y="870" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1130" y="720" />
+              <mxPoint x="1130" y="870" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-269" value="минимальный маршрут &amp;gt;&amp;nbsp;&lt;div&gt;текущего маршрута&lt;/div&gt;" style="shape=rhombus;html=1;dashed=0;whitespace=wrap;perimeter=rhombusPerimeter;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="680" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-270" value="Да" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1360" y="690" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-271" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Kszkaf4qabi_7N6jdBUt-272" target="Kszkaf4qabi_7N6jdBUt-273">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1410" y="870" />
+              <mxPoint x="1260" y="870" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-272" value="минимальный маршрут =&lt;br&gt;текущий маршрут" style="html=1;dashed=0;whitespace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="770" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-277" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Kszkaf4qabi_7N6jdBUt-273" target="Kszkaf4qabi_7N6jdBUt-276">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-273" value="Конец цикла по муравьям" style="shape=loopLimit;whiteSpace=wrap;html=1;strokeWidth=1;direction=west;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="900" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-279" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Kszkaf4qabi_7N6jdBUt-276" target="Kszkaf4qabi_7N6jdBUt-278">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-276" value="Конец цикла по дням" style="shape=loopLimit;whiteSpace=wrap;html=1;strokeWidth=1;direction=west;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="980" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Kszkaf4qabi_7N6jdBUt-278" value="Конец" style="html=1;dashed=0;whitespace=wrap;shape=mxgraph.dfd.start" vertex="1" parent="1">
+          <mxGeometry x="1160" y="1080" width="200" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

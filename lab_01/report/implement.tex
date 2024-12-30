@@ -1,0 +1,101 @@
+\chapter{Технологическая часть}
+
+\section{Средства реализации}
+
+В данной работе для реализации был выбран язык программирования $Python$. Требуется измерить затрачиваемое время и объём необходимой памяти, для проведения замеров времени использовалась библиотека $time$, объёма затрачиваемаемой памяти использовалась библиотека $tracemalloc$. Для построения графиков использовалась библиотека $mathplotlib$.
+
+\section{Реализация алгоритмов}
+
+В листингах~\ref{lst:lev_matrix},~\ref{lst:lev_rec} и~\ref{lst:dam_lev_matrix} представлены алгоритмы матричного поиска расстояния Левенштейна, рекурсивного поиска расстояния Левенштейна и матричного поиска расстояния Дамерау~--~Левенштейна.
+\begin{center}
+    \captionsetup{justification=raggedright,singlelinecheck=off}
+    \begin{lstlisting}[label=lst:lev_matrix,caption=Матричный алгоритм поиска расстояния Левенштейна]
+def levenstein_matrix(str1: str, str2: str) -> int:
+	rows = len(str1) + 1
+	cols = len(str2) + 1
+	matrix = [[0] * cols for i in range(rows)]
+	for i in range(1, cols):
+		matrix[0][i] = i
+	for i in range(1, rows):
+		matrix[i][0] = i
+
+	for i in range(1, rows):
+		for j in range(1, cols):
+			if str1[i - 1] == str2[j - 1]: cost = 0
+			else: cost = 1
+			matrix[i][j] = min(
+				matrix[i][j - 1] + 1, 
+				matrix[i - 1][j] + 1, 
+				matrix[i - 1][j - 1]  + cost
+			)
+
+	return matrix[-1][-1]
+\end{lstlisting}
+\end{center}
+
+\begin{center}
+    \captionsetup{justification=raggedright,singlelinecheck=off}
+    \begin{lstlisting}[label=lst:lev_rec,caption=Рекурсивный алгоритм поиска расстояния Левенштейна]
+def levenstein_recursive(str1: str, str2: str) -> int:
+	if (len(str1) == 0 or len(str2) == 0):
+		return max(len(str1), len(str2))
+	if str1[0] == str2[0]:
+		return levenstein_recursive(str1[1:], str2[1:])
+	return 1 + min(
+		levenstein_recursive(str1[1:], str2),
+		levenstein_recursive(str1[1:], str2[1:]),
+		levenstein_recursive(str1, str2[1:])
+	)
+\end{lstlisting}
+\end{center}
+
+\begin{center}
+    \captionsetup{justification=raggedright,singlelinecheck=off}
+    \begin{lstlisting}[label=lst:dam_lev_matrix,caption=Матричный алгоритм поиска расстояния Дамерау~--~Левенштейна]
+def damerau_levenstein_matrix(str1: str, str2: str) -> int:
+	rows = len(str1) + 1
+	cols = len(str2) + 1
+	matrix = [[0] * cols for i in range(rows)]
+	for i in range(1, cols):
+		matrix[0][i] = i
+	for i in range(1, rows):
+		matrix[i][0] = i
+
+	for i in range(1, rows):
+		for j in range(1, cols):
+			if i >= 2 and j >= 2 and str1[i - 1] == str2[j - 2] and str1[i - 2] == str2[j - 1]:
+				matrix[i][j] = min(
+					matrix[i - 1][j] + 1,
+					matrix[i - 1][j - 1] + (0 if str1[i - 1] == str2[j - 1] else 1),
+					matrix[i - 2][j - 2] + 1,
+					matrix[i][j - 1] + 1,
+				)
+			else:
+				matrix[i][j] = min(
+					matrix[i][j - 1] + 1, 
+					matrix[i - 1][j] + 1, 
+					matrix[i - 1][j - 1]  + (0 if str1[i - 1] == str2[j - 1] else 1)
+				)
+
+	return matrix[-1][-1]
+\end{lstlisting}
+\end{center}
+
+
+\section{Функциональные тесты}
+
+В таблице~\ref{tbl:functional_test} приведены тесты для тесты для алгоритмов вычисления расстояния. Тесты пройдены успешно.
+
+\begin{center}
+    \captionsetup{justification=raggedright,singlelinecheck=off}
+    \begin{longtable}[c]{|c|c|p{3cm}|p{3cm}|}
+    \caption{Функциональные тесты\label{tbl:functional_test}} \\ \hline
+		Строка 1 & Строка 2 & Расстояние Левенштейна & Расстояние Дамерау~--~Левенштейна \\ \hline
+		строка & строка & 0 & 0 \\ \hline
+		qwerty & ytrewq & 6 & 5 \\ \hline
+		звезда & звезды & 1 & 1 \\ \hline
+		бобака & бобик & 2 & 2 \\ \hline
+		цска & мгту & 4 & 4 \\ \hline
+		ерер & рере & 2 & 2 \\ \hline
+	\end{longtable}
+\end{center}
